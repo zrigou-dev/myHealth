@@ -1,0 +1,356 @@
+{"level":"info","message":"172.22.0.1 - - [27/Feb/2026:21:35:50 +0000] \"POST /api/auth/login HTTP/1.1\" 200 708 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-27T21:35:50.344Z"}
+{"level":"info","message":{"duration":"251ms","ip":"172.22.0.1","method":"POST","path":"/login","status":200,"user":"anonymous"},"timestamp":"2026-02-27T21:35:50.349Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:00:41:57 +0000] \"GET /api/billing/health HTTP/1.1\" 404 74 \"-\" \"curl/8.13.0\"","timestamp":"2026-02-28T00:41:57.051Z"}
+{"level":"info","message":{"duration":"88ms","ip":"172.22.0.1","method":"GET","path":"/api/billing/health","status":404,"user":"anonymous"},"timestamp":"2026-02-28T00:41:57.062Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:00:42:52 +0000] \"POST /api/auth/login HTTP/1.1\" 400 181 \"-\" \"curl/8.13.0\"","timestamp":"2026-02-28T00:42:52.823Z"}
+{"level":"info","message":{"duration":"291ms","ip":"172.22.0.1","method":"POST","path":"/login","status":400,"user":"anonymous"},"timestamp":"2026-02-28T00:42:52.825Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:00:43:20 +0000] \"POST /api/auth/login HTTP/1.1\" 400 181 \"-\" \"curl/8.13.0\"","timestamp":"2026-02-28T00:43:20.791Z"}
+{"level":"info","message":{"duration":"24ms","ip":"172.22.0.1","method":"POST","path":"/login","status":400,"user":"anonymous"},"timestamp":"2026-02-28T00:43:20.792Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:00:45:21 +0000] \"GET /api/billing/health HTTP/1.1\" 404 74 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T00:45:21.665Z"}
+{"level":"info","message":{"duration":"5ms","ip":"172.22.0.1","method":"GET","path":"/api/billing/health","status":404,"user":"anonymous"},"timestamp":"2026-02-28T00:45:21.667Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:11:24:26 +0000] \"GET /api/laboratory/tests HTTP/1.1\" 200 2065 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T11:24:26.174Z"}
+{"level":"info","message":{"duration":"178ms","ip":"172.22.0.1","method":"GET","path":"/tests","status":200,"user":9},"timestamp":"2026-02-28T11:24:26.184Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:11:29:35 +0000] \"GET /api/laboratory/tests/categories HTTP/1.1\" 200 203 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T11:29:35.758Z"}
+{"level":"info","message":{"duration":"74ms","ip":"172.22.0.1","method":"GET","path":"/tests/categories","status":200,"user":9},"timestamp":"2026-02-28T11:29:35.759Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:11:30:01 +0000] \"GET /api/laboratory/tests HTTP/1.1\" 200 2065 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T11:30:01.147Z"}
+{"level":"info","message":{"duration":"57ms","ip":"172.22.0.1","method":"GET","path":"/tests","status":200,"user":9},"timestamp":"2026-02-28T11:30:01.152Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:11:30:47 +0000] \"GET /api/laboratory/tests/search?q=glycemie HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T11:30:47.735Z"}
+{"level":"info","message":{"duration":"25ms","ip":"172.22.0.1","method":"GET","path":"/tests/search","status":500,"user":9},"timestamp":"2026-02-28T11:30:47.736Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:11:32:45 +0000] \"GET /api/laboratory/tests/search?q=glycemie HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T11:32:45.568Z"}
+{"level":"info","message":{"duration":"43ms","ip":"172.22.0.1","method":"GET","path":"/tests/search","status":500,"user":9},"timestamp":"2026-02-28T11:32:45.569Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:11:39:19 +0000] \"GET /api/laboratory/tests/search?q=glycemie HTTP/1.1\" 200 43 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T11:39:19.503Z"}
+{"level":"info","message":{"duration":"81ms","ip":"172.22.0.1","method":"GET","path":"/tests/search","status":200,"user":9},"timestamp":"2026-02-28T11:39:19.504Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:11:52:23 +0000] \"GET /api/laboratory/tests/category/Biochemistry HTTP/1.1\" 200 892 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T11:52:23.290Z"}
+{"level":"info","message":{"duration":"82ms","ip":"172.22.0.1","method":"GET","path":"/tests/category/Biochemistry","status":200,"user":9},"timestamp":"2026-02-28T11:52:23.291Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:11:52:58 +0000] \"GET /api/laboratory/tests/1 HTTP/1.1\" 200 488 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T11:52:58.323Z"}
+{"level":"info","message":{"duration":"62ms","ip":"172.22.0.1","method":"GET","path":"/tests/1","status":200,"user":9},"timestamp":"2026-02-28T11:52:58.324Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:11:53:58 +0000] \"POST /api/laboratory/requests HTTP/1.1\" 201 1334 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T11:53:58.044Z"}
+{"level":"info","message":{"duration":"247ms","ip":"172.22.0.1","method":"POST","path":"/requests","status":201,"user":9},"timestamp":"2026-02-28T11:53:58.045Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:11:55:00 +0000] \"POST /api/laboratory/requests HTTP/1.1\" 201 1410 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T11:55:00.707Z"}
+{"level":"info","message":{"duration":"157ms","ip":"172.22.0.1","method":"POST","path":"/requests","status":201,"user":9},"timestamp":"2026-02-28T11:55:00.708Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:11:56:36 +0000] \"GET /api/laboratory/requests/my-requests HTTP/1.1\" 200 25 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T11:56:36.954Z"}
+{"level":"info","message":{"duration":"74ms","ip":"172.22.0.1","method":"GET","path":"/requests/my-requests","status":200,"user":10},"timestamp":"2026-02-28T11:56:36.955Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:11:57:59 +0000] \"GET /api/laboratory/requests/1 HTTP/1.1\" 403 32 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T11:57:59.209Z"}
+{"level":"info","message":{"duration":"39ms","ip":"172.22.0.1","method":"GET","path":"/requests/1","status":403,"user":10},"timestamp":"2026-02-28T11:57:59.209Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:11:58:50 +0000] \"GET /api/laboratory/requests/1/tests HTTP/1.1\" 404 72 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T11:58:50.841Z"}
+{"level":"info","message":{"duration":"13ms","ip":"172.22.0.1","method":"GET","path":"/requests/1/tests","status":404,"user":9},"timestamp":"2026-02-28T11:58:50.842Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:11:59:36 +0000] \"GET /api/laboratory/requests/2/tests HTTP/1.1\" 404 72 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T11:59:36.255Z"}
+{"level":"info","message":{"duration":"11ms","ip":"172.22.0.1","method":"GET","path":"/requests/2/tests","status":404,"user":9},"timestamp":"2026-02-28T11:59:36.256Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:11:59:41 +0000] \"GET /api/laboratory/requests/1/tests HTTP/1.1\" 404 72 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T11:59:41.090Z"}
+{"level":"info","message":{"duration":"12ms","ip":"172.22.0.1","method":"GET","path":"/requests/1/tests","status":404,"user":9},"timestamp":"2026-02-28T11:59:41.090Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:12:36:46 +0000] \"GET /api/pharmacy/medications HTTP/1.1\" 404 80 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T12:36:46.804Z"}
+{"level":"info","message":{"duration":"17ms","ip":"172.22.0.1","method":"GET","path":"/api/pharmacy/medications","status":404,"user":"anonymous"},"timestamp":"2026-02-28T12:36:46.805Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:12:37:15 +0000] \"GET /api/pharmacy HTTP/1.1\" 404 68 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T12:37:15.009Z"}
+{"level":"info","message":{"duration":"1ms","ip":"172.22.0.1","method":"GET","path":"/api/pharmacy","status":404,"user":"anonymous"},"timestamp":"2026-02-28T12:37:15.009Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:12:43:41 +0000] \"GET /api/pharmacy/medications HTTP/1.1\" 200 2465 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T12:43:41.221Z"}
+{"level":"info","message":{"duration":"106ms","ip":"172.22.0.1","method":"GET","path":"/medications","status":200,"user":9},"timestamp":"2026-02-28T12:43:41.226Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:12:45:10 +0000] \"GET /api/pharmacy/medications/search?q=parac%C3%A9tamol HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T12:45:10.307Z"}
+{"level":"info","message":{"duration":"21ms","ip":"172.22.0.1","method":"GET","path":"/medications/search","status":500,"user":9},"timestamp":"2026-02-28T12:45:10.307Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:12:46:27 +0000] \"GET /api/pharmacy/medications/search?q=parac%C3%A9tamol HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T12:46:27.884Z"}
+{"level":"info","message":{"duration":"19ms","ip":"172.22.0.1","method":"GET","path":"/medications/search","status":500,"user":9},"timestamp":"2026-02-28T12:46:27.885Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:01:01 +0000] \"GET /api/pharmacy/medications/search?q=parac%C3%A9tamol HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:01:01.172Z"}
+{"level":"info","message":{"duration":"46ms","ip":"172.22.0.1","method":"GET","path":"/medications/search","status":500,"user":9},"timestamp":"2026-02-28T13:01:01.173Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:01:03 +0000] \"GET /api/pharmacy/medications/search?q=parac%C3%A9tamol HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:01:03.129Z"}
+{"level":"info","message":{"duration":"19ms","ip":"172.22.0.1","method":"GET","path":"/medications/search","status":500,"user":9},"timestamp":"2026-02-28T13:01:03.130Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:13:53 +0000] \"GET /api/pharmacy/medications/search?q=parac%C3%A9tamol HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:13:53.056Z"}
+{"level":"info","message":{"duration":"231ms","ip":"172.22.0.1","method":"GET","path":"/medications/search","status":500,"user":9},"timestamp":"2026-02-28T13:13:53.103Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:13:55 +0000] \"GET /api/pharmacy/medications/search?q=parac%C3%A9tamol HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:13:55.808Z"}
+{"level":"info","message":{"duration":"29ms","ip":"172.22.0.1","method":"GET","path":"/medications/search","status":500,"user":9},"timestamp":"2026-02-28T13:13:55.809Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:23:50 +0000] \"GET /api/pharmacy/medications/search?q=parac%C3%A9tamol HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:23:50.281Z"}
+{"level":"info","message":{"duration":"89ms","ip":"172.22.0.1","method":"GET","path":"/medications/search","status":500,"user":9},"timestamp":"2026-02-28T13:23:50.282Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:23:52 +0000] \"GET /api/pharmacy/medications/search?q=parac%C3%A9tamol HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:23:52.427Z"}
+{"level":"info","message":{"duration":"59ms","ip":"172.22.0.1","method":"GET","path":"/medications/search","status":500,"user":9},"timestamp":"2026-02-28T13:23:52.428Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:25:51 +0000] \"GET /api/pharmacy/medications/search?q=parac%C3%A9tamol HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:25:51.115Z"}
+{"level":"info","message":{"duration":"85ms","ip":"172.22.0.1","method":"GET","path":"/medications/search","status":500,"user":9},"timestamp":"2026-02-28T13:25:51.116Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:35:47 +0000] \"GET /api/pharmacy/medications/search?q=parac%C3%A9tamol HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:35:47.303Z"}
+{"level":"info","message":{"duration":"48ms","ip":"172.22.0.1","method":"GET","path":"/medications/search","status":500,"user":9},"timestamp":"2026-02-28T13:35:47.305Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:42:49 +0000] \"GET /api/pharmacy/medications/search?q=parac%C3%A9tamol HTTP/1.1\" 200 47 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:42:49.215Z"}
+{"level":"info","message":{"duration":"101ms","ip":"172.22.0.1","method":"GET","path":"/medications/search","status":200,"user":9},"timestamp":"2026-02-28T13:42:49.216Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:54:41 +0000] \"GET /api/pharmacy/medications HTTP/1.1\" 200 28 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:54:41.547Z"}
+{"level":"info","message":{"duration":"55ms","ip":"172.22.0.1","method":"GET","path":"/medications","status":200,"user":9},"timestamp":"2026-02-28T13:54:41.548Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:54:57 +0000] \"GET /api/pharmacy/medications/forms HTTP/1.1\" 200 2 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:54:57.620Z"}
+{"level":"info","message":{"duration":"37ms","ip":"172.22.0.1","method":"GET","path":"/medications/forms","status":200,"user":9},"timestamp":"2026-02-28T13:54:57.620Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:55:52 +0000] \"GET /api/auth/register HTTP/1.1\" 404 27 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:55:52.518Z"}
+{"level":"info","message":{"duration":"52ms","ip":"172.22.0.1","method":"GET","path":"/register","status":404,"user":"anonymous"},"timestamp":"2026-02-28T13:55:52.520Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:55:57 +0000] \"POST /api/auth/register HTTP/1.1\" 400 112 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:55:57.718Z"}
+{"level":"info","message":{"duration":"46ms","ip":"172.22.0.1","method":"POST","path":"/register","status":400,"user":"anonymous"},"timestamp":"2026-02-28T13:55:57.718Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:56:14 +0000] \"POST /api/auth/register HTTP/1.1\" 201 644 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:56:14.287Z"}
+{"level":"info","message":{"duration":"181ms","ip":"172.22.0.1","method":"POST","path":"/register","status":201,"user":"anonymous"},"timestamp":"2026-02-28T13:56:14.288Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:56:38 +0000] \"GET /api/pharmacy/medications/forms HTTP/1.1\" 200 2 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:56:38.520Z"}
+{"level":"info","message":{"duration":"52ms","ip":"172.22.0.1","method":"GET","path":"/medications/forms","status":200,"user":1},"timestamp":"2026-02-28T13:56:38.520Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:56:52 +0000] \"GET /api/pharmacy/medications/forms HTTP/1.1\" 200 2 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:56:52.106Z"}
+{"level":"info","message":{"duration":"25ms","ip":"172.22.0.1","method":"GET","path":"/medications/forms","status":200,"user":1},"timestamp":"2026-02-28T13:56:52.106Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:57:41 +0000] \"GET /api/pharmacy/medications/1 HTTP/1.1\" 404 35 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:57:41.225Z"}
+{"level":"info","message":{"duration":"40ms","ip":"172.22.0.1","method":"GET","path":"/medications/1","status":404,"user":9},"timestamp":"2026-02-28T13:57:41.226Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:57:48 +0000] \"GET /api/pharmacy/medications/3 HTTP/1.1\" 404 35 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:57:48.982Z"}
+{"level":"info","message":{"duration":"22ms","ip":"172.22.0.1","method":"GET","path":"/medications/3","status":404,"user":9},"timestamp":"2026-02-28T13:57:48.983Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:59:29 +0000] \"POST /api/pharmacy/medications HTTP/1.1\" 201 589 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:59:29.329Z"}
+{"level":"info","message":{"duration":"69ms","ip":"172.22.0.1","method":"POST","path":"/medications","status":201,"user":1},"timestamp":"2026-02-28T13:59:29.329Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:13:59:53 +0000] \"GET /api/pharmacy/medications/1 HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T13:59:53.311Z"}
+{"level":"info","message":{"duration":"98ms","ip":"172.22.0.1","method":"GET","path":"/medications/1","status":500,"user":9},"timestamp":"2026-02-28T13:59:53.312Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:01:53 +0000] \"GET /api/pharmacy/medications/1 HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:01:53.745Z"}
+{"level":"info","message":{"duration":"71ms","ip":"172.22.0.1","method":"GET","path":"/medications/1","status":500,"user":9},"timestamp":"2026-02-28T14:01:53.745Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:02:00 +0000] \"GET /api/pharmacy/medication HTTP/1.1\" 404 64 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:02:00.814Z"}
+{"level":"info","message":{"duration":"13ms","ip":"172.22.0.1","method":"GET","path":"/medication","status":404,"user":9},"timestamp":"2026-02-28T14:02:00.815Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:02:09 +0000] \"GET /api/pharmacy/medications HTTP/1.1\" 200 558 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:02:09.705Z"}
+{"level":"info","message":{"duration":"46ms","ip":"172.22.0.1","method":"GET","path":"/medications","status":200,"user":9},"timestamp":"2026-02-28T14:02:09.705Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:02:19 +0000] \"GET /api/pharmacy/medications/1 HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:02:19.670Z"}
+{"level":"info","message":{"duration":"24ms","ip":"172.22.0.1","method":"GET","path":"/medications/1","status":500,"user":9},"timestamp":"2026-02-28T14:02:19.670Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:03:41 +0000] \"GET /api/pharmacy/medications/1 HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:03:41.614Z"}
+{"level":"info","message":{"duration":"52ms","ip":"172.22.0.1","method":"GET","path":"/medications/1","status":500,"user":1},"timestamp":"2026-02-28T14:03:41.615Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:03:43 +0000] \"GET /api/pharmacy/medications/1 HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:03:43.664Z"}
+{"level":"info","message":{"duration":"46ms","ip":"172.22.0.1","method":"GET","path":"/medications/1","status":500,"user":1},"timestamp":"2026-02-28T14:03:43.665Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:03:49 +0000] \"GET /api/pharmacy/medications/ HTTP/1.1\" 200 558 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:03:49.252Z"}
+{"level":"info","message":{"duration":"36ms","ip":"172.22.0.1","method":"GET","path":"/medications/","status":200,"user":1},"timestamp":"2026-02-28T14:03:49.252Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:10:22 +0000] \"GET /api/pharmacy/medications HTTP/1.1\" 401 65 \"-\" \"Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.22621.6133\"","timestamp":"2026-02-28T14:10:22.979Z"}
+{"level":"info","message":{"duration":"8ms","ip":"172.22.0.1","method":"GET","path":"/medications","status":401,"user":"anonymous"},"timestamp":"2026-02-28T14:10:22.980Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:11:29 +0000] \"GET /api/pharmacy/medications/1 HTTP/1.1\" 404 35 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:11:29.493Z"}
+{"level":"info","message":{"duration":"59ms","ip":"172.22.0.1","method":"GET","path":"/medications/1","status":404,"user":1},"timestamp":"2026-02-28T14:11:29.493Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:11:40 +0000] \"GET /api/pharmacy/medications/1 HTTP/1.1\" 404 35 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:11:40.634Z"}
+{"level":"info","message":{"duration":"21ms","ip":"172.22.0.1","method":"GET","path":"/medications/1","status":404,"user":9},"timestamp":"2026-02-28T14:11:40.634Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:13:29 +0000] \"POST /api/pharmacy/medications HTTP/1.1\" 400 100 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:13:29.257Z"}
+{"level":"info","message":{"duration":"55ms","ip":"172.22.0.1","method":"POST","path":"/medications","status":400,"user":1},"timestamp":"2026-02-28T14:13:29.258Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:13:49 +0000] \"GET /api/pharmacy/medications/1 HTTP/1.1\" 404 35 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:13:49.322Z"}
+{"level":"info","message":{"duration":"43ms","ip":"172.22.0.1","method":"GET","path":"/medications/1","status":404,"user":9},"timestamp":"2026-02-28T14:13:49.322Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:13:52 +0000] \"GET /api/pharmacy/medications/2 HTTP/1.1\" 404 35 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:13:52.916Z"}
+{"level":"info","message":{"duration":"22ms","ip":"172.22.0.1","method":"GET","path":"/medications/2","status":404,"user":9},"timestamp":"2026-02-28T14:13:52.916Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:13:57 +0000] \"GET /api/pharmacy/medication HTTP/1.1\" 404 64 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:13:57.028Z"}
+{"level":"info","message":{"duration":"12ms","ip":"172.22.0.1","method":"GET","path":"/medication","status":404,"user":9},"timestamp":"2026-02-28T14:13:57.028Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:14:11 +0000] \"GET /api/pharmacy/medications HTTP/1.1\" 200 28 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:14:11.464Z"}
+{"level":"info","message":{"duration":"21ms","ip":"172.22.0.1","method":"GET","path":"/medications","status":200,"user":9},"timestamp":"2026-02-28T14:14:11.465Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:14:23 +0000] \"GET /api/pharmacy/medications HTTP/1.1\" 200 28 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:14:23.047Z"}
+{"level":"info","message":{"duration":"19ms","ip":"172.22.0.1","method":"GET","path":"/medications","status":200,"user":1},"timestamp":"2026-02-28T14:14:23.047Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:14:44 +0000] \"POST /api/pharmacy/medications HTTP/1.1\" 201 589 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:14:44.602Z"}
+{"level":"info","message":{"duration":"26ms","ip":"172.22.0.1","method":"POST","path":"/medications","status":201,"user":1},"timestamp":"2026-02-28T14:14:44.602Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:14:53 +0000] \"GET /api/pharmacy/medications HTTP/1.1\" 200 558 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:14:53.367Z"}
+{"level":"info","message":{"duration":"38ms","ip":"172.22.0.1","method":"GET","path":"/medications","status":200,"user":1},"timestamp":"2026-02-28T14:14:53.368Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:14:14:58 +0000] \"GET /api/pharmacy/medications/1 HTTP/1.1\" 200 541 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T14:14:58.800Z"}
+{"level":"info","message":{"duration":"30ms","ip":"172.22.0.1","method":"GET","path":"/medications/1","status":200,"user":1},"timestamp":"2026-02-28T14:14:58.801Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:16:07:56 +0000] \"GET /api/prescriptions/health HTTP/1.1\" 401 65 \"-\" \"curl/8.13.0\"","timestamp":"2026-02-28T16:07:56.498Z"}
+{"level":"info","message":{"duration":"30ms","ip":"172.22.0.1","method":"GET","path":"/health","status":401,"user":"anonymous"},"timestamp":"2026-02-28T16:07:56.503Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:16:09:45 +0000] \"POST /api/auth/login HTTP/1.1\" 400 181 \"-\" \"curl/8.13.0\"","timestamp":"2026-02-28T16:09:45.568Z"}
+{"level":"info","message":{"duration":"51ms","ip":"172.22.0.1","method":"POST","path":"/login","status":400,"user":"anonymous"},"timestamp":"2026-02-28T16:09:45.569Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:16:11:04 +0000] \"GET /api/prescriptions/health HTTP/1.1\" 401 65 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T16:11:04.195Z"}
+{"level":"info","message":{"duration":"7ms","ip":"172.22.0.1","method":"GET","path":"/health","status":401,"user":"anonymous"},"timestamp":"2026-02-28T16:11:04.197Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:16:11:19 +0000] \"GET /api/prescriptions/health HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T16:11:19.798Z"}
+{"level":"info","message":{"duration":"91ms","ip":"172.22.0.1","method":"GET","path":"/health","status":500,"user":1},"timestamp":"2026-02-28T16:11:19.799Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:16:11:34 +0000] \"GET /api/prescriptions/health HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T16:11:34.794Z"}
+{"level":"info","message":{"duration":"76ms","ip":"172.22.0.1","method":"GET","path":"/health","status":500,"user":1},"timestamp":"2026-02-28T16:11:34.795Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:16:11:45 +0000] \"GET /api/prescriptions/health HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T16:11:45.015Z"}
+{"level":"info","message":{"duration":"41ms","ip":"172.22.0.1","method":"GET","path":"/health","status":500,"user":1},"timestamp":"2026-02-28T16:11:45.016Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:16:11:46 +0000] \"GET /api/prescriptions/health HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T16:11:46.768Z"}
+{"level":"info","message":{"duration":"48ms","ip":"172.22.0.1","method":"GET","path":"/health","status":500,"user":1},"timestamp":"2026-02-28T16:11:46.769Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:16:11:49 +0000] \"GET /api/prescriptions/health HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T16:11:49.703Z"}
+{"level":"info","message":{"duration":"42ms","ip":"172.22.0.1","method":"GET","path":"/health","status":500,"user":1},"timestamp":"2026-02-28T16:11:49.703Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:16:12:09 +0000] \"GET /api/prescriptions HTTP/1.1\" 404 59 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T16:12:09.082Z"}
+{"level":"info","message":{"duration":"12ms","ip":"172.22.0.1","method":"GET","path":"/","status":404,"user":1},"timestamp":"2026-02-28T16:12:09.082Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:04:57 +0000] \"POST /api/auth/login HTTP/1.1\" 401 31 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:04:57.116Z"}
+{"level":"info","message":{"duration":"107ms","ip":"172.22.0.1","method":"POST","path":"/login","status":401,"user":"anonymous"},"timestamp":"2026-02-28T19:04:57.120Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:05:39 +0000] \"POST /api/auth/login HTTP/1.1\" 401 31 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:05:39.040Z"}
+{"level":"info","message":{"duration":"27ms","ip":"172.22.0.1","method":"POST","path":"/login","status":401,"user":"anonymous"},"timestamp":"2026-02-28T19:05:39.041Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:05:41 +0000] \"POST /api/auth/login HTTP/1.1\" 401 31 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:05:41.794Z"}
+{"level":"info","message":{"duration":"10ms","ip":"172.22.0.1","method":"POST","path":"/login","status":401,"user":"anonymous"},"timestamp":"2026-02-28T19:05:41.795Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:07:04 +0000] \"POST /api/prescriptions HTTP/1.1\" 401 65 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:07:04.120Z"}
+{"level":"info","message":{"duration":"6ms","ip":"172.22.0.1","method":"POST","path":"/","status":401,"user":"anonymous"},"timestamp":"2026-02-28T19:07:04.121Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:07:20 +0000] \"POST /api/prescriptions HTTP/1.1\" 400 143 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:07:20.930Z"}
+{"level":"info","message":{"duration":"94ms","ip":"172.22.0.1","method":"POST","path":"/","status":400,"user":2},"timestamp":"2026-02-28T19:07:20.931Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:07:34 +0000] \"POST /api/prescriptions HTTP/1.1\" 400 29 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:07:34.515Z"}
+{"level":"info","message":{"duration":"79ms","ip":"172.22.0.1","method":"POST","path":"/","status":400,"user":2},"timestamp":"2026-02-28T19:07:34.515Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:07:43 +0000] \"POST /api/prescriptions HTTP/1.1\" 400 29 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:07:43.251Z"}
+{"level":"info","message":{"duration":"27ms","ip":"172.22.0.1","method":"POST","path":"/","status":400,"user":2},"timestamp":"2026-02-28T19:07:43.252Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:08:23 +0000] \"POST /api/auth/login HTTP/1.1\" 200 686 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:08:23.749Z"}
+{"level":"info","message":{"duration":"132ms","ip":"172.22.0.1","method":"POST","path":"/login","status":200,"user":"anonymous"},"timestamp":"2026-02-28T19:08:23.750Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:09:15 +0000] \"POST /api/prescriptions HTTP/1.1\" 400 29 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:09:15.106Z"}
+{"level":"info","message":{"duration":"50ms","ip":"172.22.0.1","method":"POST","path":"/","status":400,"user":2},"timestamp":"2026-02-28T19:09:15.107Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:10:48 +0000] \"POST /api/auth/login HTTP/1.1\" 401 31 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:10:48.579Z"}
+{"level":"info","message":{"duration":"25ms","ip":"172.22.0.1","method":"POST","path":"/login","status":401,"user":"anonymous"},"timestamp":"2026-02-28T19:10:48.580Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:11:57 +0000] \"POST /api/auth/login HTTP/1.1\" 200 702 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:11:57.440Z"}
+{"level":"info","message":{"duration":"116ms","ip":"172.22.0.1","method":"POST","path":"/login","status":200,"user":"anonymous"},"timestamp":"2026-02-28T19:11:57.440Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:12:08 +0000] \"POST /api/prescriptions HTTP/1.1\" 400 29 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:12:08.388Z"}
+{"level":"info","message":{"duration":"42ms","ip":"172.22.0.1","method":"POST","path":"/","status":400,"user":2},"timestamp":"2026-02-28T19:12:08.388Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:12:51 +0000] \"POST /api/prescriptions HTTP/1.1\" 400 29 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:12:51.609Z"}
+{"level":"info","message":{"duration":"43ms","ip":"172.22.0.1","method":"POST","path":"/","status":400,"user":2},"timestamp":"2026-02-28T19:12:51.609Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:12:54 +0000] \"POST /api/prescriptions HTTP/1.1\" 400 29 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:12:54.620Z"}
+{"level":"info","message":{"duration":"25ms","ip":"172.22.0.1","method":"POST","path":"/","status":400,"user":2},"timestamp":"2026-02-28T19:12:54.621Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:36:24 +0000] \"POST /api/auth/register HTTP/1.1\" 400 512 \"-\" \"curl/8.13.0\"","timestamp":"2026-02-28T19:36:24.947Z"}
+{"level":"info","message":{"duration":"10ms","ip":"172.22.0.1","method":"POST","path":"/register","status":400,"user":"anonymous"},"timestamp":"2026-02-28T19:36:24.948Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:36:37 +0000] \"POST /api/auth/register HTTP/1.1\" 400 512 \"-\" \"curl/8.13.0\"","timestamp":"2026-02-28T19:36:37.813Z"}
+{"level":"info","message":{"duration":"10ms","ip":"172.22.0.1","method":"POST","path":"/register","status":400,"user":"anonymous"},"timestamp":"2026-02-28T19:36:37.813Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:37:33 +0000] \"POST /api/auth/register HTTP/1.1\" 201 623 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:37:33.508Z"}
+{"level":"info","message":{"duration":"123ms","ip":"172.22.0.1","method":"POST","path":"/register","status":201,"user":"anonymous"},"timestamp":"2026-02-28T19:37:33.508Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:39:14 +0000] \"GET /api/auth/login HTTP/1.1\" 404 27 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:39:14.834Z"}
+{"level":"info","message":{"duration":"7ms","ip":"172.22.0.1","method":"GET","path":"/login","status":404,"user":"anonymous"},"timestamp":"2026-02-28T19:39:14.834Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:39:25 +0000] \"POST /api/auth/login HTTP/1.1\" 429 85 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:39:25.973Z"}
+{"level":"info","message":{"duration":"2ms","ip":"172.22.0.1","method":"POST","path":"/login","status":429,"user":"anonymous"},"timestamp":"2026-02-28T19:39:25.974Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:40:40 +0000] \"POST /api/auth/register HTTP/1.1\" 429 85 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:40:40.368Z"}
+{"level":"info","message":{"duration":"1ms","ip":"172.22.0.1","method":"POST","path":"/register","status":429,"user":"anonymous"},"timestamp":"2026-02-28T19:40:40.368Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:40:56 +0000] \"POST /api/auth/register HTTP/1.1\" 429 85 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:40:56.294Z"}
+{"level":"info","message":{"duration":"1ms","ip":"172.22.0.1","method":"POST","path":"/register","status":429,"user":"anonymous"},"timestamp":"2026-02-28T19:40:56.294Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:41:11 +0000] \"POST /api/auth/register HTTP/1.1\" 429 85 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:41:11.560Z"}
+{"level":"info","message":{"duration":"2ms","ip":"172.22.0.1","method":"POST","path":"/register","status":429,"user":"anonymous"},"timestamp":"2026-02-28T19:41:11.560Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:41:59 +0000] \"POST /api/auth/register HTTP/1.1\" 429 85 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:41:59.838Z"}
+{"level":"info","message":{"duration":"2ms","ip":"172.22.0.1","method":"POST","path":"/register","status":429,"user":"anonymous"},"timestamp":"2026-02-28T19:41:59.838Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:42:01 +0000] \"POST /api/auth/register HTTP/1.1\" 429 85 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:42:01.588Z"}
+{"level":"info","message":{"duration":"1ms","ip":"172.22.0.1","method":"POST","path":"/register","status":429,"user":"anonymous"},"timestamp":"2026-02-28T19:42:01.588Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:42:26 +0000] \"POST /api/auth/register HTTP/1.1\" 429 85 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:42:26.635Z"}
+{"level":"info","message":{"duration":"2ms","ip":"172.22.0.1","method":"POST","path":"/register","status":429,"user":"anonymous"},"timestamp":"2026-02-28T19:42:26.635Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:45:16 +0000] \"POST /api/auth/register HTTP/1.1\" 201 620 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:45:16.442Z"}
+{"level":"info","message":{"duration":"404ms","ip":"172.22.0.1","method":"POST","path":"/register","status":201,"user":"anonymous"},"timestamp":"2026-02-28T19:45:16.452Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:46:26 +0000] \"POST /api/prescriptions HTTP/1.1\" 400 29 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:46:26.338Z"}
+{"level":"info","message":{"duration":"111ms","ip":"172.22.0.1","method":"POST","path":"/","status":400,"user":5},"timestamp":"2026-02-28T19:46:26.339Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:46:28 +0000] \"POST /api/prescriptions HTTP/1.1\" 400 29 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:46:28.353Z"}
+{"level":"info","message":{"duration":"29ms","ip":"172.22.0.1","method":"POST","path":"/","status":400,"user":5},"timestamp":"2026-02-28T19:46:28.354Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:47:15 +0000] \"POST /api/auth/login HTTP/1.1\" 200 683 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:47:15.346Z"}
+{"level":"info","message":{"duration":"118ms","ip":"172.22.0.1","method":"POST","path":"/login","status":200,"user":"anonymous"},"timestamp":"2026-02-28T19:47:15.346Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:47:29 +0000] \"POST /api/prescriptions HTTP/1.1\" 400 29 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:47:29.681Z"}
+{"level":"info","message":{"duration":"49ms","ip":"172.22.0.1","method":"POST","path":"/","status":400,"user":5},"timestamp":"2026-02-28T19:47:29.682Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:19:47:31 +0000] \"POST /api/prescriptions HTTP/1.1\" 400 29 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T19:47:31.382Z"}
+{"level":"info","message":{"duration":"26ms","ip":"172.22.0.1","method":"POST","path":"/","status":400,"user":5},"timestamp":"2026-02-28T19:47:31.383Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:20:16:14 +0000] \"POST /api/doctors/profile HTTP/1.1\" 201 564 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T20:16:14.729Z"}
+{"level":"info","message":{"duration":"109ms","ip":"172.22.0.1","method":"POST","path":"/profile","status":201,"user":5},"timestamp":"2026-02-28T20:16:14.730Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:20:18:04 +0000] \"POST /api/prescriptions HTTP/1.1\" 201 1922 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T20:18:04.350Z"}
+{"level":"info","message":{"duration":"1399ms","ip":"172.22.0.1","method":"POST","path":"/","status":201,"user":5},"timestamp":"2026-02-28T20:18:04.351Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:23:23:04 +0000] \"POST /api/auth/login HTTP/1.1\" 200 724 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T23:23:04.161Z"}
+{"level":"info","message":{"duration":"506ms","ip":"172.22.0.1","method":"POST","path":"/login","status":200,"user":"anonymous"},"timestamp":"2026-02-28T23:23:04.165Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:23:23:38 +0000] \"POST /api/auth/login HTTP/1.1\" 200 708 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T23:23:38.896Z"}
+{"level":"info","message":{"duration":"142ms","ip":"172.22.0.1","method":"POST","path":"/login","status":200,"user":"anonymous"},"timestamp":"2026-02-28T23:23:38.897Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:23:24:05 +0000] \"POST /api/auth/login HTTP/1.1\" 401 31 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T23:24:05.724Z"}
+{"level":"info","message":{"duration":"16ms","ip":"172.22.0.1","method":"POST","path":"/login","status":401,"user":"anonymous"},"timestamp":"2026-02-28T23:24:05.724Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:23:24:24 +0000] \"POST /api/auth/register HTTP/1.1\" 400 202 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T23:24:24.808Z"}
+{"level":"info","message":{"duration":"15ms","ip":"172.22.0.1","method":"POST","path":"/register","status":400,"user":"anonymous"},"timestamp":"2026-02-28T23:24:24.809Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:23:25:20 +0000] \"GET /api/medical-records/patient/1 HTTP/1.1\" 200 374 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T23:25:20.410Z"}
+{"level":"info","message":{"duration":"371ms","ip":"172.22.0.1","method":"GET","path":"/patient/1","status":200,"user":2},"timestamp":"2026-02-28T23:25:20.411Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:23:26:57 +0000] \"GET /api/medical-records/patient/1/complete HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T23:26:57.672Z"}
+{"level":"info","message":{"duration":"137ms","ip":"172.22.0.1","method":"GET","path":"/patient/1/complete","status":500,"user":2},"timestamp":"2026-02-28T23:26:57.673Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:23:28:42 +0000] \"GET /api/medical-records/patient/1/timeline HTTP/1.1\" 403 54 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T23:28:42.301Z"}
+{"level":"info","message":{"duration":"21ms","ip":"172.22.0.1","method":"GET","path":"/patient/1/timeline","status":403,"user":3},"timestamp":"2026-02-28T23:28:42.302Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:23:29:34 +0000] \"GET /api/medical-records/patient/1/stats?days=30 HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T23:29:34.809Z"}
+{"level":"info","message":{"duration":"117ms","ip":"172.22.0.1","method":"GET","path":"/patient/1/stats","status":500,"user":2},"timestamp":"2026-02-28T23:29:34.810Z"}
+{"level":"info","message":"172.22.0.1 - - [28/Feb/2026:23:59:26 +0000] \"GET /api/medical-records/patient/1 HTTP/1.1\" 200 374 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-02-28T23:59:26.981Z"}
+{"level":"info","message":{"duration":"2032ms","ip":"172.22.0.1","method":"GET","path":"/patient/1","status":200,"user":2},"timestamp":"2026-02-28T23:59:26.985Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:00:00:00 +0000] \"GET /api/medical-records/patient/1/complete HTTP/1.1\" 200 465 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T00:00:00.139Z"}
+{"level":"info","message":{"duration":"3568ms","ip":"172.22.0.1","method":"GET","path":"/patient/1/complete","status":200,"user":2},"timestamp":"2026-03-01T00:00:00.140Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:00:01:06 +0000] \"GET /api/medical-records/patient/1/timeline HTTP/1.1\" 403 54 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T00:01:06.039Z"}
+{"level":"info","message":{"duration":"22ms","ip":"172.22.0.1","method":"GET","path":"/patient/1/timeline","status":403,"user":3},"timestamp":"2026-03-01T00:01:06.039Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:00:01:55 +0000] \"GET /api/medical-records/patient/1/stats?days=30 HTTP/1.1\" 200 418 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T00:01:55.544Z"}
+{"level":"info","message":{"duration":"1930ms","ip":"172.22.0.1","method":"GET","path":"/patient/1/stats","status":200,"user":2},"timestamp":"2026-03-01T00:01:55.545Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:00:02:43 +0000] \"GET /api/medical-records/patient/1/allergies HTTP/1.1\" 403 54 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T00:02:43.039Z"}
+{"level":"info","message":{"duration":"17ms","ip":"172.22.0.1","method":"GET","path":"/patient/1/allergies","status":403,"user":3},"timestamp":"2026-03-01T00:02:43.039Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:00:03:29 +0000] \"POST /api/medical-records/patient/1/allergies HTTP/1.1\" 201 341 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T00:03:29.058Z"}
+{"level":"info","message":{"duration":"62ms","ip":"172.22.0.1","method":"POST","path":"/patient/1/allergies","status":201,"user":2},"timestamp":"2026-03-01T00:03:29.059Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:00:07:40 +0000] \"POST /api/medical-records/patient/1/vitals HTTP/1.1\" 201 514 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T00:07:40.921Z"}
+{"level":"info","message":{"duration":"39ms","ip":"172.22.0.1","method":"POST","path":"/patient/1/vitals","status":201,"user":2},"timestamp":"2026-03-01T00:07:40.922Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:09:12:30 +0000] \"GET /api/notifications/preferences/user/1 HTTP/1.1\" 404 92 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T09:12:30.031Z"}
+{"level":"info","message":{"duration":"40ms","ip":"172.22.0.1","method":"GET","path":"/api/notifications/preferences/user/1","status":404,"user":"anonymous"},"timestamp":"2026-03-01T09:12:30.035Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:09:32:33 +0000] \"GET /api/notifications/preferences/user/1 HTTP/1.1\" 403 32 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T09:32:33.833Z"}
+{"level":"info","message":{"duration":"72ms","ip":"172.22.0.1","method":"GET","path":"/preferences/user/1","status":403,"user":6},"timestamp":"2026-03-01T09:32:33.838Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:09:35:16 +0000] \"POST /api/auth/register HTTP/1.1\" 409 47 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T09:35:16.837Z"}
+{"level":"info","message":{"duration":"42ms","ip":"172.22.0.1","method":"POST","path":"/register","status":409,"user":"anonymous"},"timestamp":"2026-03-01T09:35:16.839Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:09:35:23 +0000] \"POST /api/auth/register HTTP/1.1\" 201 611 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T09:35:23.903Z"}
+{"level":"info","message":{"duration":"124ms","ip":"172.22.0.1","method":"POST","path":"/register","status":201,"user":"anonymous"},"timestamp":"2026-03-01T09:35:23.904Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:09:36:20 +0000] \"POST /api/auth/login HTTP/1.1\" 200 674 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T09:36:20.335Z"}
+{"level":"info","message":{"duration":"140ms","ip":"172.22.0.1","method":"POST","path":"/login","status":200,"user":"anonymous"},"timestamp":"2026-03-01T09:36:20.336Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:09:37:49 +0000] \"GET /api/notifications/preferences/user/1 HTTP/1.1\" 403 32 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T09:37:49.242Z"}
+{"level":"info","message":{"duration":"18ms","ip":"172.22.0.1","method":"GET","path":"/preferences/user/1","status":403,"user":7},"timestamp":"2026-03-01T09:37:49.243Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:09:37:51 +0000] \"GET /api/notifications/preferences/user/1 HTTP/1.1\" 403 32 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T09:37:51.333Z"}
+{"level":"info","message":{"duration":"14ms","ip":"172.22.0.1","method":"GET","path":"/preferences/user/1","status":403,"user":7},"timestamp":"2026-03-01T09:37:51.334Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:09:38:02 +0000] \"GET /api/notifications/preferences/user HTTP/1.1\" 403 32 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T09:38:02.857Z"}
+{"level":"info","message":{"duration":"18ms","ip":"172.22.0.1","method":"GET","path":"/preferences/user","status":403,"user":7},"timestamp":"2026-03-01T09:38:02.858Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:09:38:07 +0000] \"GET /api/notifications/preferences/users HTTP/1.1\" 403 32 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T09:38:07.541Z"}
+{"level":"info","message":{"duration":"13ms","ip":"172.22.0.1","method":"GET","path":"/preferences/users","status":403,"user":7},"timestamp":"2026-03-01T09:38:07.542Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:09:38:17 +0000] \"GET /api/notifications/preferences/usersss HTTP/1.1\" 403 32 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T09:38:17.546Z"}
+{"level":"info","message":{"duration":"18ms","ip":"172.22.0.1","method":"GET","path":"/preferences/usersss","status":403,"user":7},"timestamp":"2026-03-01T09:38:17.547Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:09:38:26 +0000] \"GET /api/notifications HTTP/1.1\" 404 59 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T09:38:26.146Z"}
+{"level":"info","message":{"duration":"14ms","ip":"172.22.0.1","method":"GET","path":"/","status":404,"user":7},"timestamp":"2026-03-01T09:38:26.146Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:09:43:23 +0000] \"GET /api/notifications/preferences/user/1 HTTP/1.1\" 403 32 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T09:43:23.746Z"}
+{"level":"info","message":{"duration":"15ms","ip":"172.22.0.1","method":"GET","path":"/preferences/user/1","status":403,"user":7},"timestamp":"2026-03-01T09:43:23.747Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:09:43:31 +0000] \"GET /api/notifications/preferences/user/1 HTTP/1.1\" 403 32 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T09:43:31.633Z"}
+{"level":"info","message":{"duration":"14ms","ip":"172.22.0.1","method":"GET","path":"/preferences/user/1","status":403,"user":7},"timestamp":"2026-03-01T09:43:31.634Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:09:46:50 +0000] \"POST /api/notifications/send HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T09:46:50.943Z"}
+{"level":"info","message":{"duration":"114ms","ip":"172.22.0.1","method":"POST","path":"/send","status":500,"user":7},"timestamp":"2026-03-01T09:46:50.944Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:10:24:34 +0000] \"POST /api/notifications/send HTTP/1.1\" 503 40 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T10:24:34.733Z"}
+{"level":"info","message":{"duration":"106ms","ip":"172.22.0.1","method":"POST","path":"/send","status":503,"user":7},"timestamp":"2026-03-01T10:24:34.738Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:10:27:25 +0000] \"POST /api/notifications/send HTTP/1.1\" 503 40 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T10:27:25.997Z"}
+{"level":"info","message":{"duration":"27ms","ip":"172.22.0.1","method":"POST","path":"/send","status":503,"user":7},"timestamp":"2026-03-01T10:27:25.998Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:10:27:28 +0000] \"POST /api/notifications/send HTTP/1.1\" 503 40 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T10:27:28.375Z"}
+{"level":"info","message":{"duration":"22ms","ip":"172.22.0.1","method":"POST","path":"/send","status":503,"user":7},"timestamp":"2026-03-01T10:27:28.377Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:10:27:55 +0000] \"POST /api/notifications/send HTTP/1.1\" 500 90 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T10:27:55.708Z"}
+{"level":"info","message":{"duration":"37ms","ip":"172.22.0.1","method":"POST","path":"/api/notifications/send","status":500,"user":7},"timestamp":"2026-03-01T10:27:55.712Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:10:28:53 +0000] \"POST /api/notifications/send HTTP/1.1\" 500 90 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T10:28:53.245Z"}
+{"level":"info","message":{"duration":"48ms","ip":"172.22.0.1","method":"POST","path":"/api/notifications/send","status":500,"user":7},"timestamp":"2026-03-01T10:28:53.248Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:10:28:56 +0000] \"POST /api/notifications/send HTTP/1.1\" 500 90 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T10:28:56.132Z"}
+{"level":"info","message":{"duration":"21ms","ip":"172.22.0.1","method":"POST","path":"/api/notifications/send","status":500,"user":7},"timestamp":"2026-03-01T10:28:56.134Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:10:29:07 +0000] \"POST /api/notifications/send HTTP/1.1\" 500 90 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T10:29:07.006Z"}
+{"level":"info","message":{"duration":"19ms","ip":"172.22.0.1","method":"POST","path":"/api/notifications/send","status":500,"user":7},"timestamp":"2026-03-01T10:29:07.007Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:10:29:08 +0000] \"POST /api/notifications/send HTTP/1.1\" 500 90 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T10:29:08.711Z"}
+{"level":"info","message":{"duration":"13ms","ip":"172.22.0.1","method":"POST","path":"/api/notifications/send","status":500,"user":7},"timestamp":"2026-03-01T10:29:08.714Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:14:53:48 +0000] \"GET /api/patients/profile HTTP/1.1\" 401 65 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T14:53:48.298Z"}
+{"level":"info","message":{"duration":"59ms","ip":"172.22.0.1","method":"GET","path":"/profile","status":401,"user":"anonymous"},"timestamp":"2026-03-01T14:53:48.313Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:14:55:35 +0000] \"POST /api/auth/register HTTP/1.1\" 409 47 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T14:55:35.385Z"}
+{"level":"info","message":{"duration":"431ms","ip":"172.22.0.1","method":"POST","path":"/register","status":409,"user":"anonymous"},"timestamp":"2026-03-01T14:55:35.387Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:14:55:45 +0000] \"POST /api/auth/register HTTP/1.1\" 201 625 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T14:55:45.215Z"}
+{"level":"info","message":{"duration":"239ms","ip":"172.22.0.1","method":"POST","path":"/register","status":201,"user":"anonymous"},"timestamp":"2026-03-01T14:55:45.216Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:14:57:29 +0000] \"POST /api/patients/profile HTTP/1.1\" 201 826 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T14:57:29.824Z"}
+{"level":"info","message":{"duration":"416ms","ip":"172.22.0.1","method":"POST","path":"/profile","status":201,"user":8},"timestamp":"2026-03-01T14:57:29.827Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:00:58 +0000] \"GET /api/patients/profile HTTP/1.1\" 200 868 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:00:58.227Z"}
+{"level":"info","message":{"duration":"84ms","ip":"172.22.0.1","method":"GET","path":"/profile","status":200,"user":8},"timestamp":"2026-03-01T15:00:58.228Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:05:09 +0000] \"POST /api/patients/emergency-contact HTTP/1.1\" 201 279 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:05:09.672Z"}
+{"level":"info","message":{"duration":"137ms","ip":"172.22.0.1","method":"POST","path":"/emergency-contact","status":201,"user":8},"timestamp":"2026-03-01T15:05:09.673Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:17:09 +0000] \"POST /api/auth/login HTTP/1.1\" 200 708 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:17:09.156Z"}
+{"level":"info","message":{"duration":"173ms","ip":"172.22.0.1","method":"POST","path":"/login","status":200,"user":"anonymous"},"timestamp":"2026-03-01T15:17:09.157Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:18:39 +0000] \"POST /api/doctors/profile HTTP/1.1\" 400 399 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:18:39.539Z"}
+{"level":"info","message":{"duration":"363ms","ip":"172.22.0.1","method":"POST","path":"/profile","status":400,"user":2},"timestamp":"2026-03-01T15:18:39.539Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:21:00 +0000] \"POST /api/auth/login HTTP/1.1\" 200 708 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:21:00.008Z"}
+{"level":"info","message":{"duration":"145ms","ip":"172.22.0.1","method":"POST","path":"/login","status":200,"user":"anonymous"},"timestamp":"2026-03-01T15:21:00.009Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:21:23 +0000] \"POST /api/doctors/profile HTTP/1.1\" 400 399 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:21:23.069Z"}
+{"level":"info","message":{"duration":"38ms","ip":"172.22.0.1","method":"POST","path":"/profile","status":400,"user":2},"timestamp":"2026-03-01T15:21:23.070Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:21:26 +0000] \"POST /api/doctors/profile HTTP/1.1\" 400 399 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:21:26.241Z"}
+{"level":"info","message":{"duration":"26ms","ip":"172.22.0.1","method":"POST","path":"/profile","status":400,"user":2},"timestamp":"2026-03-01T15:21:26.242Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:22:45 +0000] \"POST /api/doctors/profile HTTP/1.1\" 201 1029 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:22:45.735Z"}
+{"level":"info","message":{"duration":"211ms","ip":"172.22.0.1","method":"POST","path":"/profile","status":201,"user":2},"timestamp":"2026-03-01T15:22:45.736Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:25:03 +0000] \"POST /api/doctors/schedules HTTP/1.1\" 201 224 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:25:03.674Z"}
+{"level":"info","message":{"duration":"70ms","ip":"172.22.0.1","method":"POST","path":"/schedules","status":201,"user":2},"timestamp":"2026-03-01T15:25:03.674Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:28:24 +0000] \"GET /api/doctors/schedules HTTP/1.1\" 200 173 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:28:24.702Z"}
+{"level":"info","message":{"duration":"59ms","ip":"172.22.0.1","method":"GET","path":"/schedules","status":200,"user":2},"timestamp":"2026-03-01T15:28:24.703Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:35:39 +0000] \"POST /api/appointments/doctors/1/availability?date=2024-03-20 HTTP/1.1\" 401 65 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:35:39.397Z"}
+{"level":"info","message":{"duration":"4ms","ip":"172.22.0.1","method":"POST","path":"/doctors/1/availability","status":401,"user":"anonymous"},"timestamp":"2026-03-01T15:35:39.397Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:35:44 +0000] \"GET /api/appointments/doctors/1/availability?date=2024-03-20 HTTP/1.1\" 401 65 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:35:44.378Z"}
+{"level":"info","message":{"duration":"2ms","ip":"172.22.0.1","method":"GET","path":"/doctors/1/availability","status":401,"user":"anonymous"},"timestamp":"2026-03-01T15:35:44.378Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:40:23 +0000] \"PUT /api/appointments/1/confirm HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:40:23.426Z"}
+{"level":"info","message":{"duration":"369ms","ip":"172.22.0.1","method":"PUT","path":"/1/confirm","status":500,"user":2},"timestamp":"2026-03-01T15:40:23.426Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:41:12 +0000] \"PUT /api/appointments/1/confirm HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:41:12.563Z"}
+{"level":"info","message":{"duration":"61ms","ip":"172.22.0.1","method":"PUT","path":"/1/confirm","status":500,"user":2},"timestamp":"2026-03-01T15:41:12.563Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:41:14 +0000] \"PUT /api/appointments/1/confirm HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:41:14.652Z"}
+{"level":"info","message":{"duration":"31ms","ip":"172.22.0.1","method":"PUT","path":"/1/confirm","status":500,"user":2},"timestamp":"2026-03-01T15:41:14.653Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:41:28 +0000] \"POST /api/auth/login HTTP/1.1\" 200 708 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:41:28.587Z"}
+{"level":"info","message":{"duration":"186ms","ip":"172.22.0.1","method":"POST","path":"/login","status":200,"user":"anonymous"},"timestamp":"2026-03-01T15:41:28.587Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:41:47 +0000] \"PUT /api/appointments/1/confirm HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:41:47.608Z"}
+{"level":"info","message":{"duration":"70ms","ip":"172.22.0.1","method":"PUT","path":"/1/confirm","status":500,"user":2},"timestamp":"2026-03-01T15:41:47.608Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:15:43:04 +0000] \"GET /api/doctor/profile HTTP/1.1\" 404 74 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T15:43:04.733Z"}
+{"level":"info","message":{"duration":"4ms","ip":"172.22.0.1","method":"GET","path":"/api/doctor/profile","status":404,"user":"anonymous"},"timestamp":"2026-03-01T15:43:04.734Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:17:07:54 +0000] \"POST /api/auth/login HTTP/1.1\" 401 31 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T17:07:54.838Z"}
+{"level":"info","message":{"duration":"120ms","ip":"172.22.0.1","method":"POST","path":"/login","status":401,"user":"anonymous"},"timestamp":"2026-03-01T17:07:54.844Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:17:13:15 +0000] \"POST /api/notifications/email HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T17:13:15.234Z"}
+{"level":"info","message":{"duration":"145ms","ip":"172.22.0.1","method":"POST","path":"/email","status":500,"user":9},"timestamp":"2026-03-01T17:13:15.235Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:17:15:08 +0000] \"POST /api/notifications/email HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T17:15:08.049Z"}
+{"level":"info","message":{"duration":"38ms","ip":"172.22.0.1","method":"POST","path":"/email","status":500,"user":9},"timestamp":"2026-03-01T17:15:08.050Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:17:15:16 +0000] \"POST /api/notifications/email HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T17:15:16.404Z"}
+{"level":"info","message":{"duration":"37ms","ip":"172.22.0.1","method":"POST","path":"/email","status":500,"user":9},"timestamp":"2026-03-01T17:15:16.405Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:17:15:18 +0000] \"POST /api/notifications/email HTTP/1.1\" 500 26 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T17:15:18.345Z"}
+{"level":"info","message":{"duration":"33ms","ip":"172.22.0.1","method":"POST","path":"/email","status":500,"user":9},"timestamp":"2026-03-01T17:15:18.346Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:17:37:26 +0000] \"POST /api/auth/login HTTP/1.1\" 500 33 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T17:37:26.224Z"}
+{"level":"info","message":{"duration":"111ms","ip":"172.22.0.1","method":"POST","path":"/login","status":500,"user":"anonymous"},"timestamp":"2026-03-01T17:37:26.230Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:17:39:11 +0000] \"POST /api/auth/register HTTP/1.1\" 500 33 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T17:39:11.679Z"}
+{"level":"info","message":{"duration":"30ms","ip":"172.22.0.1","method":"POST","path":"/register","status":500,"user":"anonymous"},"timestamp":"2026-03-01T17:39:11.680Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:17:40:42 +0000] \"POST /api/auth/register HTTP/1.1\" 500 33 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T17:40:42.101Z"}
+{"level":"info","message":{"duration":"30ms","ip":"172.22.0.1","method":"POST","path":"/register","status":500,"user":"anonymous"},"timestamp":"2026-03-01T17:40:42.102Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:17:42:08 +0000] \"POST /api/auth/register HTTP/1.1\" 500 33 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T17:42:08.357Z"}
+{"level":"info","message":{"duration":"27ms","ip":"172.22.0.1","method":"POST","path":"/register","status":500,"user":"anonymous"},"timestamp":"2026-03-01T17:42:08.358Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:17:42:10 +0000] \"POST /api/auth/register HTTP/1.1\" 500 33 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T17:42:10.654Z"}
+{"level":"info","message":{"duration":"24ms","ip":"172.22.0.1","method":"POST","path":"/register","status":500,"user":"anonymous"},"timestamp":"2026-03-01T17:42:10.654Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:17:42:12 +0000] \"POST /api/auth/register HTTP/1.1\" 500 33 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T17:42:12.121Z"}
+{"level":"info","message":{"duration":"24ms","ip":"172.22.0.1","method":"POST","path":"/register","status":500,"user":"anonymous"},"timestamp":"2026-03-01T17:42:12.122Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:17:47:17 +0000] \"POST /api/auth/register HTTP/1.1\" 201 618 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T17:47:17.092Z"}
+{"level":"info","message":{"duration":"155ms","ip":"172.22.0.1","method":"POST","path":"/register","status":201,"user":"anonymous"},"timestamp":"2026-03-01T17:47:17.093Z"}
+{"level":"info","message":"172.22.0.1 - - [01/Mar/2026:17:49:04 +0000] \"POST /api/notifications/email HTTP/1.1\" 201 91 \"-\" \"PostmanRuntime/7.51.1\"","timestamp":"2026-03-01T17:49:04.629Z"}
+{"level":"info","message":{"duration":"117ms","ip":"172.22.0.1","method":"POST","path":"/email","status":201,"user":1},"timestamp":"2026-03-01T17:49:04.630Z"}

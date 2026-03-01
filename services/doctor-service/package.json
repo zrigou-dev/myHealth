@@ -1,0 +1,31 @@
+{
+  "name": "doctor-service",
+  "version": "1.0.0",
+  "description": "Doctor management microservice for MyHeart healthcare system",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^1.13.5",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "express-rate-limit": "^6.11.2",
+    "express-validator": "^7.3.1",
+    "helmet": "^7.2.0",
+    "node-cron": "^3.0.3",
+    "pg": "^8.19.0",
+    "winston": "^3.19.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^2.0.22",
+    "supertest": "^6.3.4"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
