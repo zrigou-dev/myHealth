@@ -606,6 +606,27 @@ services:
     networks:
       - myheart-network
     command: npm run dev
+
+
+
+
+
+  consul-server:
+    image: hashicorp/consul:1.15
+    container_name: myheart_consul
+    ports:
+      - "8500:8500"   # Interface web
+      - "8600:8600"   # DNS
+    volumes:
+      - consul_data:/consul/data
+    networks:
+      - myheart-network
+    command: "agent -server -bootstrap-expect=1 -ui -client=0.0.0.0 -bind=0.0.0.0"
+    healthcheck:
+      test: ["CMD", "consul", "info"]
+      interval: 30s
+      timeout: 10s
+      retries: 3  
     # =====================================================
 # NETWORK
 # =====================================================
@@ -628,3 +649,4 @@ volumes:
   postgres_medical_data: 
   mongodb_medical_data:  
   postgres_notification_data:
+  consul_data:

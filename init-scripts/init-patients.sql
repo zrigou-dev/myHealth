@@ -1,9 +1,4 @@
--- init-scripts/init-patients.sql
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-
--- Note: La table patients sera créée par l'application
--- Ce script est optionnel si vous voulez pré-configurer quelque chose
-
--- Créer des index pour améliorer les performances
-CREATE INDEX IF NOT EXISTS idx_patients_user_id ON patients(user_id);
-CREATE INDEX IF NOT EXISTS idx_patients_insurance ON patients(insurance_policy_number);
+-- Ce fichier est volontairement vide
+-- Les tables sont créées par l'application via database.js
+-- Ne pas créer d'index ici car les tables n'existent pas encore
+SELECT 1;

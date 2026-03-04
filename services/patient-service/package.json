@@ -11,6 +11,7 @@
   "dependencies": {
     "auth-service": "file:../auth-service",
     "axios": "^1.13.5",
+    "consul": "^2.0.1",
     "cors": "^2.8.6",
     "dotenv": "^16.6.1",
     "express": "^4.22.1",
