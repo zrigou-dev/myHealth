@@ -3,11 +3,17 @@ const DoctorService = require('../services/doctorService');
 const PatientService = require('../services/patientService');
 const { validationResult } = require('express-validator');
 const moment = require('moment');
+const db = require('../config/database');
+
+const KafkaService = require('../../../shared/kafka-service');
+const kafka = new KafkaService('appointment-service');
 
 class AppointmentController {
+
   // Créer un rendez-vous
   async createAppointment(req, res) {
     try {
+
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
@@ -23,15 +29,15 @@ class AppointmentController {
 
       // Vérifier la disponibilité
       const isAvailable = await Appointment.checkAvailability(
-        doctor_id, 
-        appointment_date, 
-        start_time, 
+        doctor_id,
+        appointment_date,
+        start_time,
         duration_minutes
       );
 
       if (!isAvailable) {
-        return res.status(409).json({ 
-          error: 'Ce créneau n\'est pas disponible' 
+        return res.status(409).json({
+          error: 'Ce créneau n\'est pas disponible'
         });
       }
 
@@ -47,7 +53,22 @@ class AppointmentController {
         created_by: req.user.id
       });
 
-      // Notifier le médecin (asynchrone, ne pas attendre)
+      // 🔥 Publier événement Kafka
+      await kafka.publish(
+        'appointment.created',
+        {
+          appointmentId: appointment.id,
+          patientId: appointment.patient_id,
+          doctorId: appointment.doctor_id,
+          date: appointment.appointment_date,
+          time: appointment.start_time,
+          status: appointment.status,
+          timestamp: new Date().toISOString()
+        },
+        `patient-${appointment.patient_id}`
+      );
+
+      // Notifier le médecin (optionnel si Kafka gère déjà les notifications)
       DoctorService.notifyDoctorAppointment(doctor_id, {
         appointmentId: appointment.id,
         patientId: req.user.id,
@@ -66,9 +87,10 @@ class AppointmentController {
     }
   }
 
-  // Récupérer mes rendez-vous (patient)
+  // Récupérer mes rendez-vous
   async getMyAppointments(req, res) {
     try {
+
       const { status, limit } = req.query;
       const appointments = await Appointment.getByPatient(req.user.id, status, limit);
 
@@ -76,20 +98,20 @@ class AppointmentController {
         count: appointments.length,
         appointments
       });
+
     } catch (error) {
       console.error('❌ Erreur récupération rendez-vous:', error);
       res.status(500).json({ error: 'Erreur interne' });
     }
   }
 
-  // Récupérer les rendez-vous d'un médecin (pour les médecins)
+  // Récupérer les rendez-vous d'un médecin
   async getDoctorAppointments(req, res) {
     try {
-      // Vérifier que le médecin connecté est bien le médecin concerné
-      // ou que c'est un admin
+
       if (req.user.role !== 'admin' && req.user.id !== req.params.doctorId) {
-        return res.status(403).json({ 
-          error: 'Vous n\'avez pas accès aux rendez-vous de ce médecin' 
+        return res.status(403).json({
+          error: 'Vous n\'avez pas accès aux rendez-vous de ce médecin'
         });
       }
 
@@ -100,6 +122,7 @@ class AppointmentController {
         count: appointments.length,
         appointments
       });
+
     } catch (error) {
       console.error('❌ Erreur récupération rendez-vous médecin:', error);
       res.status(500).json({ error: 'Erreur interne' });
@@ -109,10 +132,10 @@ class AppointmentController {
   // Annuler un rendez-vous
   async cancelAppointment(req, res) {
     try {
+
       const { id } = req.params;
       const { reason } = req.body;
 
-      // Récupérer le rendez-vous
       const appointment = await db.query(
         'SELECT * FROM appointments WHERE id = $1',
         [id]
@@ -122,31 +145,30 @@ class AppointmentController {
         return res.status(404).json({ error: 'Rendez-vous non trouvé' });
       }
 
-      // Vérifier les permissions
-      if (appointment.rows[0].patient_id !== req.user.id && 
-          appointment.rows[0].doctor_id !== req.user.id && 
-          req.user.role !== 'admin') {
-        return res.status(403).json({ 
-          error: 'Vous n\'êtes pas autorisé à annuler ce rendez-vous' 
+      if (
+        appointment.rows[0].patient_id !== req.user.id &&
+        appointment.rows[0].doctor_id !== req.user.id &&
+        req.user.role !== 'admin'
+      ) {
+        return res.status(403).json({
+          error: 'Vous n\'êtes pas autorisé à annuler ce rendez-vous'
         });
       }
 
-      // Vérifier le délai d'annulation
       const appointmentDate = moment(appointment.rows[0].appointment_date);
       const now = moment();
       const hoursDiff = appointmentDate.diff(now, 'hours');
 
       if (hoursDiff < process.env.MIN_ADVANCE_HOURS && req.user.role !== 'admin') {
-        return res.status(400).json({ 
-          error: `Les annulations doivent être faites au moins ${process.env.MIN_ADVANCE_HOURS} heures à l'avance` 
+        return res.status(400).json({
+          error: `Les annulations doivent être faites au moins ${process.env.MIN_ADVANCE_HOURS} heures à l'avance`
         });
       }
 
-      // Mettre à jour le statut
       const updated = await Appointment.updateStatus(
-        id, 
-        'cancelled', 
-        req.user.id, 
+        id,
+        'cancelled',
+        req.user.id,
         reason
       );
 
@@ -161,11 +183,11 @@ class AppointmentController {
     }
   }
 
-  // Confirmer un rendez-vous (médecin)
+  // Confirmer un rendez-vous
   async confirmAppointment(req, res) {
     try {
-      const { id } = req.params;
 
+      const { id } = req.params;
       const appointment = await Appointment.updateStatus(id, 'confirmed', req.user.id);
 
       res.json({
@@ -179,11 +201,11 @@ class AppointmentController {
     }
   }
 
-  // Marquer comme terminé (médecin)
+  // Terminer un rendez-vous
   async completeAppointment(req, res) {
     try {
-      const { id } = req.params;
 
+      const { id } = req.params;
       const appointment = await Appointment.updateStatus(id, 'completed', req.user.id);
 
       res.json({
@@ -197,126 +219,6 @@ class AppointmentController {
     }
   }
 
-  // Obtenir les disponibilités d'un médecin
-  async getDoctorAvailability(req, res) {
-    try {
-      const { doctorId } = req.params;
-      const { date } = req.query;
-
-      if (!date) {
-        return res.status(400).json({ error: 'La date est requise' });
-      }
-
-      // Vérifier que le médecin existe
-      const doctor = await DoctorService.validateDoctor(doctorId);
-      if (!doctor) {
-        return res.status(404).json({ error: 'Médecin non trouvé' });
-      }
-
-      const slots = await Appointment.getDoctorAvailableSlots(doctorId, date);
-
-      res.json({
-        doctor_id: doctorId,
-        date,
-        available_slots: slots
-      });
-
-    } catch (error) {
-      console.error('❌ Erreur récupération disponibilités:', error);
-      res.status(500).json({ error: 'Erreur interne' });
-    }
-  }
-
-  // Obtenir les statistiques
-  async getStats(req, res) {
-    try {
-      const { doctorId, startDate, endDate } = req.query;
-
-      // Vérifier les permissions
-      if (doctorId && req.user.role !== 'admin' && req.user.id != doctorId) {
-        return res.status(403).json({ 
-          error: 'Vous n\'avez pas accès aux statistiques de ce médecin' 
-        });
-      }
-
-      const stats = await Appointment.getStats(doctorId, startDate, endDate);
-
-      res.json(stats);
-
-    } catch (error) {
-      console.error('❌ Erreur récupération statistiques:', error);
-      res.status(500).json({ error: 'Erreur interne' });
-    }
-  }
-
-  // Reprogrammer un rendez-vous
-  async rescheduleAppointment(req, res) {
-    try {
-      const { id } = req.params;
-      const { appointment_date, start_time, duration_minutes } = req.body;
-
-      // Récupérer le rendez-vous existant
-      const currentAppointment = await db.query(
-        'SELECT * FROM appointments WHERE id = $1',
-        [id]
-      );
-
-      if (!currentAppointment.rows[0]) {
-        return res.status(404).json({ error: 'Rendez-vous non trouvé' });
-      }
-
-      // Vérifier les permissions
-      if (currentAppointment.rows[0].patient_id !== req.user.id && 
-          currentAppointment.rows[0].doctor_id !== req.user.id && 
-          req.user.role !== 'admin') {
-        return res.status(403).json({ 
-          error: 'Vous n\'êtes pas autorisé à reprogrammer ce rendez-vous' 
-        });
-      }
-
-      // Vérifier la disponibilité du nouveau créneau
-      const isAvailable = await Appointment.checkAvailability(
-        currentAppointment.rows[0].doctor_id,
-        appointment_date,
-        start_time,
-        duration_minutes || currentAppointment.rows[0].duration_minutes
-      );
-
-      if (!isAvailable) {
-        return res.status(409).json({ 
-          error: 'Le nouveau créneau n\'est pas disponible' 
-        });
-      }
-
-      // Créer un nouveau rendez-vous
-      const newAppointment = await Appointment.create({
-        ...currentAppointment.rows[0],
-        appointment_date,
-        start_time,
-        duration_minutes: duration_minutes || currentAppointment.rows[0].duration_minutes,
-        rescheduled_from: id,
-        created_by: req.user.id
-      });
-
-      // Annuler l'ancien
-      await Appointment.updateStatus(
-        id, 
-        'cancelled', 
-        req.user.id, 
-        'Reprogrammé vers nouveau rendez-vous'
-      );
-
-      res.status(201).json({
-        message: 'Rendez-vous reprogrammé avec succès',
-        old_appointment_id: id,
-        new_appointment: newAppointment
-      });
-
-    } catch (error) {
-      console.error('❌ Erreur reprogrammation rendez-vous:', error);
-      res.status(500).json({ error: 'Erreur interne' });
-    }
-  }
 }
 
 module.exports = new AppointmentController();

@@ -205,9 +205,8 @@ services:
       - myheart-network
     command: npm start
 
-
-# =====================================================
-  # api-gateway
+  # =====================================================
+  # API GATEWAY
   # =====================================================
   api-gateway:
     build: ./api-gateway
@@ -239,14 +238,9 @@ services:
       - myheart-network
     command: npm run dev
 
-
-
-
-
-
-
-
-
+  # =====================================================
+  # BILLING
+  # =====================================================
   postgres_billing:
     image: postgres:15-alpine
     container_name: myheart_billing_db
@@ -266,16 +260,11 @@ services:
       timeout: 5s
       retries: 5
 
-
-
-
   billing-service:
     build: ./services/billing-service
     container_name: myheart_billing_service
     ports:
       - "3010:3005"
-
-   
     environment:
       - PORT=3005
       - NODE_ENV=development
@@ -305,41 +294,33 @@ services:
       - myheart-network
     command: npm run dev
 
-
-
-
-
-
-
+  # =====================================================
+  # LABORATORY
+  # =====================================================
   postgres_laboratory:
-     image: postgres:15-alpine
-     container_name: myheart_laboratory_db
-     environment:
+    image: postgres:15-alpine
+    container_name: myheart_laboratory_db
+    environment:
       POSTGRES_DB: myheart_laboratory
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-     ports:
+    ports:
       - "5438:5432"
-     volumes:
+    volumes:
       - postgres_laboratory_data:/var/lib/postgresql/data
-     networks:
+    networks:
       - myheart-network
-     healthcheck:
+    healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
       timeout: 5s
       retries: 5
-
-
-
-
 
   laboratory-service:
     build: ./services/laboratory-service
     container_name: myheart_laboratory_service
     ports:
       - "3011:3006"
-
     environment:
       - PORT=3006
       - NODE_ENV=development
@@ -366,11 +347,10 @@ services:
       - myheart-network
     command: npm run dev
 
-
-
-
+  # =====================================================
+  # PHARMACY
+  # =====================================================
   postgres_pharmacy:
-
     image: postgres:15-alpine
     container_name: myheart_pharmacy_db
     environment:
@@ -387,16 +367,9 @@ services:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
       timeout: 5s
-      retries: 5 
-
-
-
-
-
-
+      retries: 5
 
   pharmacy-service:
-
     build: ./services/pharmacy-service
     container_name: myheart_pharmacy_service
     ports:
@@ -427,7 +400,9 @@ services:
       - myheart-network
     command: npm run dev
 
-
+  # =====================================================
+  # PRESCRIPTION
+  # =====================================================
   postgres_prescription:
     image: postgres:15-alpine
     container_name: myheart_prescription_db
@@ -446,6 +421,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
   prescription-service:
     build: ./services/prescription-service
     container_name: myheart_prescription_service
@@ -477,11 +453,9 @@ services:
       - myheart-network
     command: npm run dev
 
-
-
-
-
-
+  # =====================================================
+  # MEDICAL RECORD
+  # =====================================================
   mongodb_medical:
     image: mongo:7
     container_name: myheart_medical_mongodb
@@ -496,8 +470,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
-
 
   postgres_medical:
     image: postgres:15-alpine
@@ -517,7 +489,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
 
   medical-record-service:
     build: ./services/medical-record-service
@@ -557,6 +528,9 @@ services:
       - myheart-network
     command: npm run dev
 
+  # =====================================================
+  # NOTIFICATION
+  # =====================================================
   postgres_notification:
     image: postgres:15-alpine
     container_name: myheart_notification_db
@@ -607,10 +581,9 @@ services:
       - myheart-network
     command: npm run dev
 
-
-
-
-
+  # =====================================================
+  # CONSUL
+  # =====================================================
   consul-server:
     image: hashicorp/consul:1.15
     container_name: myheart_consul
@@ -626,8 +599,49 @@ services:
       test: ["CMD", "consul", "info"]
       interval: 30s
       timeout: 10s
-      retries: 3  
-    # =====================================================
+      retries: 3
+
+  # =====================================================
+  # KAFKA
+  # =====================================================
+  kafka:
+    image: apache/kafka:4.1.1
+    container_name: myheart_kafka
+    ports:
+      - "9092:9092"
+      - "9093:9093"
+    environment:
+      # Configuration KRaft (pas de ZooKeeper)
+      KAFKA_KRAFT_MODE: 'true'
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: 'broker,controller'
+      KAFKA_CONTROLLER_QUORUM_VOTERS: '1@kafka:9093'
+      KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
+      
+      # Listeners
+      KAFKA_LISTENERS: 'PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093'
+      KAFKA_ADVERTISED_LISTENERS: 'PLAINTEXT://localhost:9092'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: 'CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT'
+      
+      # Configuration des topics
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      
+      # Stockage
+      KAFKA_LOG_DIRS: '/var/lib/kafka/data'
+    volumes:
+      - kafka_data:/var/lib/kafka/data
+    networks:
+      - myheart-network
+    healthcheck:
+      test: ["CMD", "kafka-broker-api-versions", "--bootstrap-server=localhost:9092"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+# =====================================================
 # NETWORK
 # =====================================================
 networks:
@@ -650,3 +664,4 @@ volumes:
   mongodb_medical_data:  
   postgres_notification_data:
   consul_data:
+  kafka_data:
