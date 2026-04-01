@@ -1,0 +1,668 @@
+version: '3.8'
+
+services:
+
+  # =====================================================
+  # AUTH
+  # =====================================================
+  postgres_auth:
+    image: postgres:15-alpine
+    container_name: myheart_auth_db
+    environment:
+      POSTGRES_DB: myheart_auth
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_auth_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - myheart-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  auth-service:
+    build: ./services/auth-service
+    container_name: myheart_auth_service
+    ports:
+      - "3006:3001"
+    environment:
+      NODE_ENV: development
+      DB_HOST: postgres_auth
+      DB_PORT: 5432
+      DB_NAME: myheart_auth
+      DB_USER: ${POSTGRES_USER:-postgres}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      JWT_SECRET: ${JWT_SECRET:-your_super_secret_jwt_key_change_this_in_production_12345}
+      JWT_EXPIRES_IN: 24h
+    depends_on:
+      postgres_auth:
+        condition: service_healthy
+    volumes:
+      - ./services/auth-service:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - myheart-network
+    command: npm start
+
+  # =====================================================
+  # PATIENT
+  # =====================================================
+  postgres_patients:
+    image: postgres:15-alpine
+    container_name: myheart_patients_db
+    environment:
+      POSTGRES_DB: myheart_patients
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_patients_data:/var/lib/postgresql/data
+    networks:
+      - myheart-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  patient-service:
+    build: ./services/patient-service
+    container_name: myheart_patient_service
+    ports:
+      - "3007:3002"
+    environment:
+      NODE_ENV: development
+      DB_HOST: postgres_patients
+      DB_PORT: 5432
+      DB_NAME: myheart_patients
+      DB_USER: ${POSTGRES_USER:-postgres}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      AUTH_SERVICE_URL: http://auth-service:3001
+      JWT_SECRET: ${JWT_SECRET:-your_super_secret_jwt_key_change_this_in_production_12345}
+    depends_on:
+      postgres_patients:
+        condition: service_healthy
+      auth-service:
+        condition: service_started
+    volumes:
+      - ./services/patient-service:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - myheart-network
+    command: npm start
+
+  # =====================================================
+  # DOCTOR
+  # =====================================================
+  postgres_doctors:
+    image: postgres:15-alpine
+    container_name: myheart_doctors_db
+    environment:
+      POSTGRES_DB: myheart_doctors
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5435:5432"
+    volumes:
+      - postgres_doctors_data:/var/lib/postgresql/data
+    networks:
+      - myheart-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  doctor-service:
+    build: ./services/doctor-service
+    container_name: myheart_doctor_service
+    ports:
+      - "3008:3003"
+    environment:
+      NODE_ENV: development
+      DB_HOST: postgres_doctors
+      DB_PORT: 5432
+      DB_NAME: myheart_doctors
+      DB_USER: ${POSTGRES_USER:-postgres}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      AUTH_SERVICE_URL: http://auth-service:3001
+      PATIENT_SERVICE_URL: http://patient-service:3002
+      CORS_ORIGIN: "*"
+      RATE_LIMIT_WINDOW_MS: 900000
+      RATE_LIMIT_MAX_REQUESTS: 100
+      JWT_SECRET: ${JWT_SECRET:-your_super_secret_jwt_key_change_this_in_production_12345}
+    depends_on:
+      postgres_doctors:
+        condition: service_healthy
+      auth-service:
+        condition: service_started
+      patient-service:
+        condition: service_started
+    volumes:
+      - ./services/doctor-service:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - myheart-network
+    command: npm start
+
+  # =====================================================
+  # APPOINTMENT
+  # =====================================================
+  postgres_appointments:
+    image: postgres:15-alpine
+    container_name: myheart_appointments_db
+    environment:
+      POSTGRES_DB: myheart_appointments
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5436:5432"
+    volumes:
+      - postgres_appointments_data:/var/lib/postgresql/data
+    networks:
+      - myheart-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  appointment-service:
+    build: ./services/appointment-service
+    container_name: myheart_appointment_service
+    ports:
+      - "3009:3004"
+    environment:
+      NODE_ENV: development
+      DB_HOST: postgres_appointments
+      DB_PORT: 5432
+      DB_NAME: myheart_appointments
+      DB_USER: ${POSTGRES_USER:-postgres}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      AUTH_SERVICE_URL: http://auth-service:3001
+      PATIENT_SERVICE_URL: http://patient-service:3002
+      DOCTOR_SERVICE_URL: http://doctor-service:3003
+      DEFAULT_DURATION_MINUTES: 30
+      MAX_ADVANCE_BOOKING_DAYS: 30
+      MIN_ADVANCE_HOURS: 2
+      CANCELLATION_DEADLINE_HOURS: 24
+      JWT_SECRET: ${JWT_SECRET:-your_super_secret_jwt_key_change_this_in_production_12345}
+    depends_on:
+      postgres_appointments:
+        condition: service_healthy
+      auth-service:
+        condition: service_started
+    volumes:
+      - ./services/appointment-service:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - myheart-network
+    command: npm start
+
+  # =====================================================
+  # API GATEWAY
+  # =====================================================
+  api-gateway:
+    build: ./api-gateway
+    container_name: myheart_api_gateway
+    ports:
+      - "8081:8080"
+    environment:
+      - PORT=8080
+      - NODE_ENV=development
+      - AUTH_SERVICE_URL=http://auth-service:3001
+      - PATIENT_SERVICE_URL=http://patient-service:3002
+      - DOCTOR_SERVICE_URL=http://doctor-service:3003
+      - APPOINTMENT_SERVICE_URL=http://appointment-service:3004
+      - BILLING_SERVICE_URL=http://billing-service:3005
+      - CORS_ORIGIN=*
+      - RATE_LIMIT_WINDOW_MS=900000
+      - RATE_LIMIT_MAX_REQUESTS=1000
+    depends_on:
+      - auth-service
+      - patient-service
+      - doctor-service
+      - appointment-service
+      - billing-service
+    volumes:
+      - ./api-gateway:/usr/src/app
+      - /usr/src/app/node_modules
+      - ./logs:/usr/src/app/logs
+    networks:
+      - myheart-network
+    command: npm start
+
+  # =====================================================
+  # BILLING
+  # =====================================================
+  postgres_billing:
+    image: postgres:15-alpine
+    container_name: myheart_billing_db
+    environment:
+      POSTGRES_DB: myheart_billing
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5437:5432"
+    volumes:
+      - postgres_billing_data:/var/lib/postgresql/data
+    networks:
+      - myheart-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  billing-service:
+    build: ./services/billing-service
+    container_name: myheart_billing_service
+    ports:
+      - "3010:3005"
+    environment:
+      - PORT=3005
+      - NODE_ENV=development
+      - DB_HOST=postgres_billing
+      - DB_PORT=5432
+      - DB_NAME=myheart_billing
+      - DB_USER=${POSTGRES_USER:-postgres}
+      - DB_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - AUTH_SERVICE_URL=http://auth-service:3001
+      - PATIENT_SERVICE_URL=http://patient-service:3002
+      - DOCTOR_SERVICE_URL=http://doctor-service:3003
+      - APPOINTMENT_SERVICE_URL=http://appointment-service:3004
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY:-test_key}
+      - STRIPE_WEBHOOK_SECRET=${STRIPE_WEBHOOK_SECRET:-test_whsec}
+      - VAT_RATE=20.0
+      - INVOICE_PREFIX=FAC
+      - INVOICE_DUE_DAYS=30
+    depends_on:
+      postgres_billing:
+        condition: service_healthy
+      auth-service:
+        condition: service_started
+    volumes:
+      - ./services/billing-service:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - myheart-network
+    command: npm start
+
+  # =====================================================
+  # LABORATORY
+  # =====================================================
+  postgres_laboratory:
+    image: postgres:15-alpine
+    container_name: myheart_laboratory_db
+    environment:
+      POSTGRES_DB: myheart_laboratory
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5438:5432"
+    volumes:
+      - postgres_laboratory_data:/var/lib/postgresql/data
+    networks:
+      - myheart-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  laboratory-service:
+    build: ./services/laboratory-service
+    container_name: myheart_laboratory_service
+    ports:
+      - "3011:3006"
+    environment:
+      - PORT=3006
+      - NODE_ENV=development
+      - DB_HOST=postgres_laboratory
+      - DB_PORT=5432
+      - DB_NAME=myheart_laboratory
+      - DB_USER=${POSTGRES_USER:-postgres}
+      - DB_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - AUTH_SERVICE_URL=http://auth-service:3001
+      - PATIENT_SERVICE_URL=http://patient-service:3002
+      - DOCTOR_SERVICE_URL=http://doctor-service:3003
+      - APPOINTMENT_SERVICE_URL=http://appointment-service:3004
+      - RESULT_VALIDITY_DAYS=30
+      - URGENT_RESULT_HOURS=24
+    depends_on:
+      postgres_laboratory:
+        condition: service_healthy
+      auth-service:
+        condition: service_started
+    volumes:
+      - ./services/laboratory-service:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - myheart-network
+    command: npm start
+
+  # =====================================================
+  # PHARMACY
+  # =====================================================
+  postgres_pharmacy:
+    image: postgres:15-alpine
+    container_name: myheart_pharmacy_db
+    environment:
+      POSTGRES_DB: myheart_pharmacy
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5439:5432"
+    volumes:
+      - postgres_pharmacy_data:/var/lib/postgresql/data
+    networks:
+      - myheart-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  pharmacy-service:
+    build: ./services/pharmacy-service
+    container_name: myheart_pharmacy_service
+    ports:
+      - "3012:3007"
+    environment:
+      - PORT=3007
+      - NODE_ENV=development
+      - DB_HOST=postgres_pharmacy
+      - DB_PORT=5432
+      - DB_NAME=myheart_pharmacy
+      - DB_USER=${POSTGRES_USER:-postgres}
+      - DB_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - AUTH_SERVICE_URL=http://auth-service:3001
+      - PATIENT_SERVICE_URL=http://patient-service:3002
+      - DOCTOR_SERVICE_URL=http://doctor-service:3003
+      - APPOINTMENT_SERVICE_URL=http://appointment-service:3004
+      - LOW_STOCK_THRESHOLD=10
+      - EXPIRY_WARNING_DAYS=30
+    depends_on:
+      postgres_pharmacy:
+        condition: service_healthy
+      auth-service:
+        condition: service_started
+    volumes:
+      - ./services/pharmacy-service:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - myheart-network
+    command: npm start
+
+  # =====================================================
+  # PRESCRIPTION
+  # =====================================================
+  postgres_prescription:
+    image: postgres:15-alpine
+    container_name: myheart_prescription_db
+    environment:
+      POSTGRES_DB: myheart_prescription
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5440:5432"
+    volumes:
+      - postgres_prescription_data:/var/lib/postgresql/data
+    networks:
+      - myheart-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  prescription-service:
+    build: ./services/prescription-service
+    container_name: myheart_prescription_service
+    ports:
+      - "3013:3008"
+    environment:
+      - PORT=3008
+      - NODE_ENV=development
+      - DB_HOST=postgres_prescription
+      - DB_PORT=5432
+      - DB_NAME=myheart_prescription
+      - DB_USER=${POSTGRES_USER:-postgres}
+      - DB_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - AUTH_SERVICE_URL=http://auth-service:3001
+      - PATIENT_SERVICE_URL=http://patient-service:3002
+      - DOCTOR_SERVICE_URL=http://doctor-service:3003
+      - PHARMACY_SERVICE_URL=http://pharmacy-service:3007
+      - DEFAULT_EXPIRY_DAYS=30
+      - MAX_RENEWALS=3
+    depends_on:
+      postgres_prescription:
+        condition: service_healthy
+      auth-service:
+        condition: service_started
+    volumes:
+      - ./services/prescription-service:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - myheart-network
+    command: npm start
+
+  # =====================================================
+  # MEDICAL RECORD
+  # =====================================================
+  mongodb_medical:
+    image: mongo:7
+    container_name: myheart_medical_mongodb
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_medical_data:/data/db
+    networks:
+      - myheart-network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgres_medical:
+    image: postgres:15-alpine
+    container_name: myheart_medical_postgres
+    environment:
+      POSTGRES_DB: myheart_medical_relational
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5441:5432"
+    volumes:
+      - postgres_medical_data:/var/lib/postgresql/data
+    networks:
+      - myheart-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  medical-record-service:
+    build: ./services/medical-record-service
+    container_name: myheart_medical_record_service
+    ports:
+      - "3014:3009"
+    environment:
+      - PORT=3009
+      - NODE_ENV=development
+      - DB_TYPE=mongodb
+      - DB_HOST=mongodb_medical
+      - DB_PORT=27017
+      - DB_NAME=myheart_medical
+      - POSTGRES_HOST=postgres_medical
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=myheart_medical_relational
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - AUTH_SERVICE_URL=http://auth-service:3001
+      - PATIENT_SERVICE_URL=http://patient-service:3002
+      - DOCTOR_SERVICE_URL=http://doctor-service:3003
+      - APPOINTMENT_SERVICE_URL=http://appointment-service:3004
+      - LABORATORY_SERVICE_URL=http://laboratory-service:3006
+      - PHARMACY_SERVICE_URL=http://pharmacy-service:3007
+      - PRESCRIPTION_SERVICE_URL=http://prescription-service:3008
+    depends_on:
+      mongodb_medical:
+        condition: service_healthy
+      postgres_medical:
+        condition: service_healthy
+      auth-service:
+        condition: service_started
+    volumes:
+      - ./services/medical-record-service:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - myheart-network
+    command: npm start
+
+  # =====================================================
+  # NOTIFICATION
+  # =====================================================
+  postgres_notification:
+    image: postgres:15-alpine
+    container_name: myheart_notification_db
+    environment:
+      POSTGRES_DB: myheart_notification
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5442:5432"
+    volumes:
+      - postgres_notification_data:/var/lib/postgresql/data
+    networks:
+      - myheart-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  notification-service:
+    build: ./services/notification-service
+    container_name: myheart_notification_service
+    ports:
+      - "3015:3015"
+    environment:
+      - PORT=3015
+      - NODE_ENV=development
+      - DB_HOST=postgres_notification
+      - DB_PORT=5432
+      - DB_NAME=myheart_notification
+      - DB_USER=${POSTGRES_USER:-postgres}
+      - DB_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - AUTH_SERVICE_URL=http://auth-service:3001
+      - EMAIL_HOST=${EMAIL_HOST}
+      - EMAIL_PORT=${EMAIL_PORT}
+      - EMAIL_USER=${EMAIL_USER}
+      - EMAIL_PASSWORD=${EMAIL_PASSWORD}
+      - EMAIL_FROM=${EMAIL_FROM}
+    depends_on:
+      postgres_notification:
+        condition: service_healthy
+      auth-service:
+        condition: service_started
+    volumes:
+      - ./services/notification-service:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - myheart-network
+    command: npm start
+
+  # =====================================================
+  # CONSUL
+  # =====================================================
+  consul-server:
+    image: hashicorp/consul:1.15
+    container_name: myheart_consul
+    ports:
+      - "8500:8500"   # Interface web
+      - "8600:8600"   # DNS
+    volumes:
+      - consul_data:/consul/data
+    networks:
+      - myheart-network
+    command: "agent -server -bootstrap-expect=1 -ui -client=0.0.0.0 -bind=0.0.0.0"
+    healthcheck:
+      test: ["CMD", "consul", "info"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # =====================================================
+  # KAFKA
+  # =====================================================
+  kafka:
+    image: apache/kafka:4.1.1
+    container_name: myheart_kafka
+    ports:
+      - "9092:9092"
+      - "9093:9093"
+    environment:
+      # Configuration KRaft (pas de ZooKeeper)
+      KAFKA_KRAFT_MODE: 'true'
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: 'broker,controller'
+      KAFKA_CONTROLLER_QUORUM_VOTERS: '1@kafka:9093'
+      KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
+      
+      # Listeners
+      KAFKA_LISTENERS: 'PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093'
+      KAFKA_ADVERTISED_LISTENERS: 'PLAINTEXT://kafka:9092'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: 'CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT'
+      
+      # Configuration des topics
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      
+      # Stockage
+      
+      KAFKA_LOG_DIRS: '/var/lib/kafka/data'
+    volumes:
+      - kafka_data:/var/lib/kafka/data
+    networks:
+      - myheart-network
+    healthcheck:
+      test: ["CMD", "kafka-broker-api-versions", "--bootstrap-server=localhost:9092"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+# =====================================================
+# NETWORK
+# =====================================================
+networks:
+  myheart-network:
+    driver: bridge
+
+# =====================================================
+# VOLUMES
+# =====================================================
+volumes:
+  postgres_auth_data:
+  postgres_patients_data:
+  postgres_doctors_data:
+  postgres_appointments_data:
+  postgres_billing_data:
+  postgres_laboratory_data:
+  postgres_pharmacy_data:
+  postgres_prescription_data: 
+  postgres_medical_data: 
+  mongodb_medical_data:  
+  postgres_notification_data:
+  consul_data:
+  kafka_data:
